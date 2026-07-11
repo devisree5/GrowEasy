@@ -3,7 +3,7 @@ import { existsSync, mkdirSync } from 'fs';
 import path from 'path';
 import { config } from '../config/config';
 import { IJobRepository, ILeadRepository, IFailedRecordRepository } from './base';
-import { ImportJob, Lead, FailedRecord } from '../../../shared/types';
+import { ImportJob, Lead, FailedRecord } from '../types';
 import { logger } from '../utils/logger';
 
 export class FileJobRepository implements IJobRepository {

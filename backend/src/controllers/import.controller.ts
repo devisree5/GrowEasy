@@ -4,7 +4,7 @@ import fs from 'fs';
 import { config } from '../config/config';
 import { jobRepository, aiService, importService, parserService } from '../services';
 import { logger } from '../utils/logger';
-import { MappingSchema } from '../../../shared/types';
+import { MappingSchema } from '../types';
 
 /**
  * Triggers the AI model to analyze headers and preview rows to suggest a mapping schema.

@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import OpenAI from 'openai';
 import { config } from '../config/config';
 import { logger } from '../utils/logger';
-import { MappingSchema } from '../../../shared/types';
+import { MappingSchema } from '../types';
 import {
   MAPPING_SYSTEM_PROMPT,
   MAPPING_DEVELOPER_PROMPT,
@@ -109,11 +109,14 @@ export class AiService {
 
   private async callGemini(userPrompt: string): Promise<string> {
     logger.info('Calling Google Gemini (gemini-2.5-flash)...');
+    if (!this.geminiClient) {
+      throw new Error('Gemini client not initialized.');
+    }
     const aiModel = this.geminiClient.getGenerativeModel({
       model: 'gemini-2.5-flash',
       generationConfig: {
         responseMimeType: 'application/json',
-        responseSchema: GEMINI_RESPONSE_SCHEMA,
+        responseSchema: GEMINI_RESPONSE_SCHEMA as any,
         temperature: 0.2,
       },
     });

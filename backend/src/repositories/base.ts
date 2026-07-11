@@ -1,4 +1,4 @@
-import { ImportJob, Lead, FailedRecord } from '../../../shared/types';
+import { ImportJob, Lead, FailedRecord } from '../types';
 
 export interface IJobRepository {
   create(job: ImportJob): Promise<ImportJob>;

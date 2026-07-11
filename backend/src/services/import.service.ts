@@ -1,7 +1,7 @@
 import fs from 'fs';
 import csvParser from 'csv-parser';
 import { IJobRepository, ILeadRepository, IFailedRecordRepository } from '../repositories/base';
-import { MappingSchema, CRMStatus, Lead, FailedRecord, ImportJob } from '../../../shared/types';
+import { MappingSchema, CRMStatus, Lead, FailedRecord, ImportJob } from '../types';
 import { normalizeDate } from '../utils/date';
 import { extractEmails, extractPhones, isValidEmail, isValidPhone } from '../utils/validation';
 import { logger } from '../utils/logger';

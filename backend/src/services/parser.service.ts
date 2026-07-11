@@ -17,9 +17,10 @@ export class ParserService {
       let count = 0;
       const stream = fs.createReadStream(filePath, { encoding: 'utf8' });
       
-      stream.on('data', (chunk: string) => {
-        for (let i = 0; i < chunk.length; i++) {
-          if (chunk[i] === '\n') {
+      stream.on('data', (chunk: string | Buffer) => {
+        const text = chunk.toString();
+        for (let i = 0; i < text.length; i++) {
+          if (text[i] === '\n') {
             count++;
           }
         }

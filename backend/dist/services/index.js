@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.importService = exports.aiService = exports.parserService = exports.failedRecordRepository = exports.leadRepository = exports.jobRepository = void 0;
+const file_repository_1 = require("../repositories/file.repository");
+const parser_service_1 = require("./parser.service");
+const ai_service_1 = require("./ai.service");
+const import_service_1 = require("./import.service");
+exports.jobRepository = new file_repository_1.FileJobRepository();
+exports.leadRepository = new file_repository_1.FileLeadRepository();
+exports.failedRecordRepository = new file_repository_1.FileFailedRecordRepository();
+exports.parserService = new parser_service_1.ParserService();
+exports.aiService = new ai_service_1.AiService();
+exports.importService = new import_service_1.ImportService(exports.jobRepository, exports.leadRepository, exports.failedRecordRepository);
