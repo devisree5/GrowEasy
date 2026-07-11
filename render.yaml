@@ -11,10 +11,6 @@ services:
       - key: PORT
         value: 5000
       - key: GEMINI_API_KEY
-        sync: true
+        value: "REPLACE_WITH_YOUR_GEMINI_API_KEY"
       - key: OPENAI_API_KEY
-        sync: true
-    disk:
-      name: groweasy-data
-      mountPath: /opt/render/project/src/backend/data
-      sizeGB: 1
+        value: "REPLACE_WITH_YOUR_OPENAI_API_KEY"
